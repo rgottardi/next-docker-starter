@@ -1,0 +1,37 @@
+{
+  "name": "next-docker-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "docker:dev": "docker compose up -d && npm run dev",
+    "docker:check": "./scripts/manage-docker.sh check",
+    "docker:stop": "./scripts/manage-docker.sh stop",
+    "docker:nuke": "./scripts/manage-docker.sh nuke",
+    "docker:test": "node scripts/test-services.js",
+    "docker:logs": "docker compose logs -f",
+    "docker:ps": "docker compose ps",
+    "docker:restart": "docker compose restart",
+    "docker:rebuild": "docker compose build --no-cache && docker compose up -d"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "ioredis": "^5.0.0",
+    "mongodb": "^6.0.0",
+    "next": "14.0.0",
+    "nodemailer": "^6.0.0",
+    "pg": "^8.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5.0.0"
+  }
+}
