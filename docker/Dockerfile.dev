@@ -2,9 +2,20 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Set environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=development
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
+# Copy source
 COPY . .
+
+# Enable hot reload
+ENV WATCHPACK_POLLING=true
+
+EXPOSE 3000
 
 CMD ["npm", "run", "dev"]
